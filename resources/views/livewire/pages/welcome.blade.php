@@ -208,7 +208,8 @@ new class extends Component {
                         type="button"
                         variant="ghost"
                         wire:click="$set('showModal', false)"
-                        :disabled="isCreating"
+                        wire:loading.attr="disabled"
+                        wire:target="createCounter"
                     >
                         Cancelar
                     </flux:button>
