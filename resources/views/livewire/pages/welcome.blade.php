@@ -5,6 +5,9 @@ use App\Actions\IncrementCounter;
 use App\Models\Counter;
 use Livewire\Attributes\On;
 use Livewire\Volt\Component;
+use function Livewire\Volt\{layout};
+
+layout(false); // Disable layout - this page has its own complete HTML
 
 new class extends Component {
     public bool $showModal = false;
@@ -68,6 +71,20 @@ new class extends Component {
     }
 }; ?>
 
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Laravel') }} - Contadores em Tempo Real</title>
+
+    <!-- Vite Assets -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Flux Styles -->
+    @fluxStyles
+</head>
+<body class="antialiased">
 <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
     {{-- Header --}}
     <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
@@ -271,3 +288,8 @@ new class extends Component {
     }
 </script>
 @endscript
+
+<!-- Flux Scripts -->
+@fluxScripts
+</body>
+</html>
