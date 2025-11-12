@@ -87,7 +87,7 @@ new class extends Component {
                 </div>
                 <flux:button
                     variant="primary"
-                    size="lg"
+                   
                     wire:click="$set('showModal', true)"
                     icon="plus"
                     class="w-full sm:w-auto"
@@ -108,7 +108,7 @@ new class extends Component {
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>
                 </div>
-                <flux:heading size="lg" class="mb-3 text-gray-700 dark:text-gray-300">
+                <flux:heading class="mb-3 text-gray-700 dark:text-gray-300">
                     Nenhum contador ainda
                 </flux:heading>
                 <p class="text-gray-500 dark:text-gray-400 mb-8 text-center max-w-md">
@@ -116,7 +116,7 @@ new class extends Component {
                 </p>
                 <flux:button
                     variant="primary"
-                    size="lg"
+                   
                     wire:click="$set('showModal', true)"
                     icon="plus"
                 >
@@ -184,7 +184,7 @@ new class extends Component {
     {{-- Create Counter Modal --}}
     <flux:modal wire:model="showModal" class="max-w-md">
         <div class="p-6">
-            <flux:heading size="lg" class="mb-6">Criar Novo Contador</flux:heading>
+            <flux:heading class="mb-6">Criar Novo Contador</flux:heading>
 
             <form wire:submit="createCounter" class="space-y-6">
                 <flux:field>
