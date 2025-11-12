@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
+use App\Events\CounterCreated;
 use App\Models\Counter;
 
 class CreateCounter
@@ -21,8 +22,8 @@ class CreateCounter
             'count' => 0,
         ]);
 
-        // Event will be dispatched here (to be implemented in task 3.3)
-        // event(new CounterCreated($counter));
+        // Broadcast counter creation to all connected clients
+        event(new CounterCreated($counter));
 
         return $counter;
     }

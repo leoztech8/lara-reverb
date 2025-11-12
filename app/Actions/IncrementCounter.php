@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
+use App\Events\CounterIncremented;
 use App\Models\Counter;
 
 class IncrementCounter
@@ -25,8 +26,8 @@ class IncrementCounter
         // Refresh to get updated timestamp
         $counter->refresh();
 
-        // Event will be dispatched here (to be implemented in task 3.3)
-        // event(new CounterIncremented($counter));
+        // Broadcast counter increment to all connected clients
+        event(new CounterIncremented($counter));
 
         return $counter;
     }
