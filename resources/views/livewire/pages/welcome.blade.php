@@ -9,7 +9,6 @@ use Livewire\Volt\Component;
 new class extends Component {
     public bool $showModal = false;
     public string $newCounterName = '';
-    public bool $isCreating = false;
 
     /**
      * Get all counters ordered by count descending, then name ascending.
@@ -34,17 +33,14 @@ new class extends Component {
             'newCounterName.unique' => 'Já existe um contador com este nome.',
         ]);
 
-        $this->isCreating = true;
-
         try {
             $action = new CreateCounter();
             $action->execute($this->newCounterName);
 
-            $this->reset('newCounterName', 'showModal', 'isCreating');
+            $this->reset('newCounterName', 'showModal');
             $this->dispatch('counter-created');
         } catch (\Exception $e) {
             $this->addError('newCounterName', 'Erro ao criar contador. Tente novamente.');
-            $this->isCreating = false;
         }
     }
 
